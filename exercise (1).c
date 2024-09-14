@@ -1,24 +1,26 @@
 // Ứng dụng tính toán chỉ số sức khỏe.
+// BMI Calculator
+// Metric Units
+
 #include <stdio.h>
 
 int main() {
-  float cannang, chieucao, bmi;
-  printf("Nhap can nang: ");
-  scanf("%f", &cannang);
-  printf("Nhap chieu cao: ");
-  scanf("%f", &chieucao);
-  bmi = cannang / (chieucao * chieucao);
-  printf("Chi so BMI cua ban la: %.2f\n", bmi);
+  float height, weight, bmi;
+  printf("Enter your height in cenimeters: ");
+  scanf("%f", &height);
+  printf("Your height is %.2f cm\n", height);
+  printf("Enter your weight in kilograms: ");
+  scanf("%f", &weight);
+  printf("Your weight is %.2f kg\n", weight);
+  bmi = weight / (height * height);
+  printf("Your BMI is %.2f kg/m^2\n", bmi);
   if (bmi < 18.5) {
-    printf("Ban gay qua\n");
+    printf("You are underweight\n");
+  } else if(bmi >= 18.5 && bmi < 25) {
+    printf("You are normal weight\n");
+  } else if(bmi >= 25 && bmi < 30) {
+    printf("You are overweight\n");
   } else {
-    if (18.5 <= bmi && bmi < 25) {
-      printf("Ban binh thuong\n");
-    } else {
-      if (25 <= bmi && bmi < 30) {
-        printf("Ban hoi beo\n");
-      }
-    }
+    printf("You are obese\n");
   }
-  return 0;
 }
